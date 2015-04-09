@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block javascript%}
+<script src="/static/media/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        load_options('','locale');
+    });
+    function load_options(id,index){
+        var lang_array = new Array();
+        lang_array['mr'] = "mr_in";
+        lang_array['bn'] = "bn_in";
+        lang_array['de'] = "de_de";
+        lang_array['da'] = "da_dk";
+        if(index=="locale"){
+            var selectedValue = document.getElementById("language").value;
+            $("#locale").empty();
+            $("#locale").append('<option value='+lang_array[selectedValue]+'>'+lang_array[selectedValue]+'</option>');
+        }
+    };
+
+   </script>
+{% endblock %}
+
+{% block content_main %}
+    <form action="." method="post">{% csrf_token %}
+           <p><br>
+           <label>Select Language</label>  &nbsp;&nbsp;&nbsp;
+           <select name="language" id="language" onchange="load_options(this.value,'locale');">
+             <option value="mr" >Marathi</option>
+             <option value="bn" >Bengali</option>
+             <option value="de" >German</option>
+             <option value="da" >Danish</option>
+           </select>
+            </br> </p>
+
+            <p><br>
+            <label>Select Locale</label>  &nbsp;&nbsp;&nbsp;
+            <select name="locale" id="locale" onchange="load_options(this.value,'locale');">
+            </select>
+            </br>
+            </p>
+           </br>
+           <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
+

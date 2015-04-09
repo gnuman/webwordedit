@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="jquery-ui.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="ui.jqgrid.css" />
+<script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="jquery.jqGrid.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+    var mydata = [
+    { id : "one", "name" : "row one" },
+    { id : "two", "name" : "row two" },
+    { id : "three", "name" : "row three" }
+    ]; 
+    $("#list").jqGrid({
+       data: mydata, //insert data from the data object we created above
+       datatype: 'local',
+       width: 500, //specify width; optional
+       colNames:['Id','Name'], //define column names
+       colModel:[
+        {name:'id', index:'id', key: true, width:50},
+        {name:'name', index:'name', width:100}
+       ], //define column models
+       pager: '#pager', //set your pager div id
+       sortname: 'id',
+       viewrecords: true,
+       sortorder: "asc",
+       caption:"jqGrid Example" 
+    }); 
+}); 
+</script>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+
+<title>Web Word Edit</title>
+</head>
+
+<body>
+   <table id="list"><tr><td></td></tr></table> 
+
+</body>
+
+
+</html>

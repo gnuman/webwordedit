@@ -1,0 +1,37 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+  width:70%;
+  margin:2%;
+  float:left;
+}
+
+
+.lang_selection{
+  display:inline-block;
+  float:right;
+  color:white;
+}
+
+
+.side_menu{
+    padding: 40px 15px;
+    width:20%;
+    display:inline-block;
+    float:left;
+}
+
+.container select{
+    color:black;
+}
+.mastfoot{
+    width: 100%;
+    margin-top:15%;
+    bottom: 0;
+    text-align:center;
+    color:white;
+}
+

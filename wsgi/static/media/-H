@@ -1,0 +1,6 @@
+HTTP/1.0 501 NOT IMPLEMENTED
+Date: Wed, 30 Oct 2013 11:20:14 GMT
+Server: WSGIServer/0.1 Python/2.7.5
+Vary: Accept
+Content-Type: text/html; charset=utf-8
+

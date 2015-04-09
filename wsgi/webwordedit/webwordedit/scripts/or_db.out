@@ -1,0 +1,60 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: wordlists_un_verified_or_in; Type: TABLE; Schema: public; Owner: anish; Tablespace: 
+--
+
+CREATE TABLE wordlists_un_verified_or_in (
+    id integer NOT NULL,
+    phrase character varying(250) NOT NULL,
+    author character varying(30),
+    "time" date,
+    replacement_phrase character varying(250),
+    verified_by_usr boolean NOT NULL,
+    verified_by_admin boolean NOT NULL,
+    discard_word boolean NOT NULL,
+    valid_word boolean NOT NULL,
+    author_email character varying(75),
+    admin_name character varying(30),
+    admin_email character varying(75),
+    admin_time date
+);
+
+
+ALTER TABLE public.wordlists_un_verified_or_in OWNER TO anish;
+
+--
+-- Data for Name: wordlists_un_verified_or_in; Type: TABLE DATA; Schema: public; Owner: anish
+--
+
+COPY wordlists_un_verified_or_in (id, phrase, author, "time", replacement_phrase, verified_by_usr, verified_by_admin, discard_word, valid_word, author_email, admin_name, admin_email, admin_time) FROM stdin;
+\.
+
+
+--
+-- Name: wordlists_un_verified_or_in_pkey; Type: CONSTRAINT; Schema: public; Owner: anish; Tablespace: 
+--
+
+ALTER TABLE ONLY wordlists_un_verified_or_in
+    ADD CONSTRAINT wordlists_un_verified_or_in_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+{% block title %}
+<title>Web Word Edit</title>
+{% endblock %}
+{% block stylesheet %}
+{% endblock %}
+{% block javascript%}
+       <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="a\
+ll" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"> 
+	</script>
+        <script src="{% static 'media/ajax.js' %}" type="text/javascript"> </script>
+	<script src="{% static 'media/jquery.cookie.js' %}" type="text/javascript"> </script>
+{% endblock %}
+</head>
+
+<body>
+
+  <div class="top_menu">
+    <side class="menu_locale">
+       <h3><label>Select Locale</label></h3>
+       <select name="locale" id="locale">
+       </select>
+    </side>
+    <side class="menu_language">
+      <h3><label>Select Language</label></h3>
+       <select name="language" id="language" onchange="load_options(this.value,'locale');">
+       </select>
+    </side>
+    <side class="auth">
+       {% if user.is_authenticated %}
+           <h3>Welcome, {{ user.username }} !. <a href="/accounts/logout/">Signout</a></h3>
+       {% else %}
+            <h3>Welcome, Anonymous! <a href="/accounts/login/">Login</a></h3>
+       {% endif %}
+    </side>
+  </div>
+
+  <div class="mainheader">
+    <h1> WebWordEdit </h1>
+  </div>
+  
+  
+  <div class="main_content">
+       <article>
+	 <p>
+	   Nowadays we are having too many contains/data available today but we don't have people to validate the data specially when it comes to words we are having copious amount of words but when it comes to wordlists we don't have enough data.
+For example,in current Hunspell wordlists for some Indian languages such as Oriya or Marathi we don't have enough words and for some Indian languages data present in the wordlist itself is not correct. With this project our main aim to fix such issues and we will have all the words for each language.With "webwordweb", users can review/validate/view existing word lists and submit new words to wordlists as well. There would be two types of users
+1: Normal Users:- Users can log into system and start verifying the words
+2: Language Admins:- Users who would verify words which are been verified by users. Once Language admin would verify words, those words would get committed into final db. To change those words,you need to submit an email to public mailing list or admin itself
+This page is just about to show what we are trying to achieve and if you need any information or need language admin privilege or have any suggestions please feel to contact me on
+anish.developer@gmail.com or apatil@redhat.com
+Note:- This UI is __not__ final UI, which will be modified/improved.
+We are also providing a REST API's so that other people can use validated words in their product but still it's in development state.
+All the wordlists which will be generated using WebWordEdit will be under GPL license.
+	 </p>
+       </article>
+
+  </div>
+
+  <aside class="side_menu">
+	 <nav>
+	   <ul>
+	     <li><a href="/wordlists/verify"><h4>Verify Wordlist</h4/a></li>
+	     <li><a href="/wordlists/verified"><h4>View Wordlist</h4></a></li>
+	   </ul>
+	 </nav>
+  </aside>
+
+  <div class="bottom_footer">
+    <footer>
+      <p> All contents are in GPL license </p>
+    </footer>
+  </div>
+</body>
+
+
+</html>
